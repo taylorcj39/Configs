@@ -369,8 +369,21 @@ globalkeys = gears.table.join(
 
     --Calculator
     awful.key({ modkey, "Shift" }, "c", function () awful.util.spawn("gnome-calculator") end,
-              {description = "Calculator", group = "launcher"})
+              {description = "Calculator", group = "launcher"}),
 
+    -- Brightness
+    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 15") end,
+              {description = "Decrease screen brightness", group = "screen"}),
+    awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 15") end,
+              {description = "Decrease screen brightness", group = "screen"}),
+
+    --Volume
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%") end,
+              {description = "Raise volume", group = "client"}),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%") end,
+              {description = "Lower volume", group = "client"}),
+    awful.key({ }, "XF86AudioMute", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ 0%") end,
+              {description = "Mute volume", group = "client"})
 )
 
 clientkeys = gears.table.join(
@@ -599,4 +612,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Run at Startup
-awful.spawn("xrandr --output eDP-1-1 --mode 2880x1620")
+awful.spawn("xrandr --output eDP-1-1 --mode 2048x1152")
+
+local execute = {
+  "numlockx on"
+}
