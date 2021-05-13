@@ -1,3 +1,4 @@
 # Configs
 Configuration files
-Place at ~/.config/awesome/
+
+Place at ~/.config/
