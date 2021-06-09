@@ -234,6 +234,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            require("battery-widget") {},
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
@@ -372,9 +373,9 @@ globalkeys = gears.table.join(
               {description = "Calculator", group = "launcher"}),
 
     -- Brightness
-    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 15") end,
+    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 10") end,
               {description = "Decrease screen brightness", group = "screen"}),
-    awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 15") end,
+    awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 10R") end,
               {description = "Decrease screen brightness", group = "screen"}),
 
     --Volume
