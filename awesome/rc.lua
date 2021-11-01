@@ -614,7 +614,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Run at Startup
 awful.spawn("xrandr --output eDP-1-1 --mode 2048x1152")
-
-local execute = {
-  "numlockx on"
-}
+awful.spawn("numlockx on")
