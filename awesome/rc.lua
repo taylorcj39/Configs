@@ -383,9 +383,13 @@ globalkeys = gears.table.join(
               {description = "Decrease screen brightness", group = "screen"}),
 
     --Volume
-    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%") end,
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end,
               {description = "Raise volume", group = "client"}),
-    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%") end,
+    awful.key({ modkey, "Shift" }, ".", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end,
+              {description = "Raise volume", group = "client"}),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end,
+              {description = "Lower volume", group = "client"}),
+    awful.key({ modkey, "Shift" }, ",", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end,
               {description = "Lower volume", group = "client"}),
     awful.key({ }, "XF86AudioMute", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ 0%") end,
               {description = "Mute volume", group = "client"})
