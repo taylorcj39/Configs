@@ -46,6 +46,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.useless_gap = 0 -- Remove useless gap between windows
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -133,6 +134,8 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
+
+
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -506,12 +509,14 @@ awful.rules.rules = {
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
+                     fullscreen = false, -- true for fullscreen (no title bar)
                      raise = true,
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
-     }
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+                     size_hints_honor = false
+                   }
     },
 
     -- Floating clients.
@@ -623,3 +628,20 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Run at Startup
 awful.spawn("xrandr --output eDP-1-1 --mode 2048x1152")
 awful.spawn("numlockx on")
+
+--
+-- Wallpaper --
+-- Get the list of files from a directory. Must be all images or folders and non-empty. 
+--     function scanDir(directory)
+--   local i, fileList, popen = 0, {}, io.popen
+--   for filename in popen([[find "]] ..directory.. [[" -type f]]):lines() do
+--       i = i + 1
+--       fileList[i] = filename
+--   end
+--   return fileList
+--     end
+--     wallpaperList = scanDir("/home/taylor/Pictures/send")
+
+-- -- Apply a random wallpaper on startup.
+--     gears.wallpaper.maximized(wallpaperList[math.random(1, #wallpaperList)], s, true)
+--
