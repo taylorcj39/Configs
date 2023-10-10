@@ -142,7 +142,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 mytextclock = wibox.widget.textclock()
 
 -- Calendar Widget
-local calendar = require("calendar")
+local calendar = require("../awesome-calendar_widget/calendar")
 calendar:register(mytextclock)
 
 -- Create a wibox for each screen and add it

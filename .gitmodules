@@ -1,0 +1,6 @@
+[submodule "awesome/battery-widget"]
+	path = awesome/battery-widget
+	url = https://github.com/deficient/battery-widget.git
+[submodule "awesome/awesome-calendar_widget"]
+	path = awesome/awesome-calendar_widget
+	url = https://github.com/stefano-m/awesome-calendar_widget.git
