@@ -384,7 +384,7 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 10") end,
               {description = "Decrease screen brightness", group = "screen"}),
     awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 10R") end,
-              {description = "Decrease screen brightness", group = "screen"}),
+              {description = "Increase screen brightness", group = "screen"}),
 
     --Volume
     awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end,
